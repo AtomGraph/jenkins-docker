@@ -30,6 +30,8 @@ VOLUME /var/run/docker.sock:/var/run/docker.sock
 
 COPY entrypoint.sh /
 
+RUN chmod +x entrypoint.sh
+
 # entrypoint reused from https://github.com/SvenDowideit/docs-automation/blob/master/jenkins/setup-docker-and-start-jenkins.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
