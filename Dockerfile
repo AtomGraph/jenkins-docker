@@ -24,6 +24,10 @@ RUN add-apt-repository \
 RUN apt-get update && \
   apt-get install -y docker-ce
 
+# map host Docker socket
+
+VOLUME /var/run/docker.sock:/var/run/docker.sock
+
 COPY entrypoint.sh /
 
 # entrypoint reused from https://github.com/SvenDowideit/docs-automation/blob/master/jenkins/setup-docker-and-start-jenkins.sh
