@@ -1,5 +1,7 @@
 FROM jenkins
 
+LABEL maintainer="martynas@atomgraph.com"
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
