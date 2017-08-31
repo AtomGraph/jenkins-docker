@@ -24,10 +24,6 @@ RUN add-apt-repository \
 RUN apt-get update && \
   apt-get install -y docker-ce
 
-# entrypoint reused from https://github.com/SvenDowideit/docs-automation/blob/master/jenkins/setup-docker-and-start-jenkins.sh
+RUN usermod -aG staff jenkins
 
-COPY entrypoint.sh /
-
-RUN chmod +x entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+USER jenkins
