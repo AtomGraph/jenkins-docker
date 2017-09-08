@@ -24,6 +24,11 @@ RUN add-apt-repository \
 RUN apt-get update && \
   apt-get install -y docker-ce
 
-RUN usermod -aG staff jenkins
+# RUN usermod -aG staff,docker jenkins
+
+# workaround for jenkins Dockr socket permissions
+# https://stackoverflow.com/questions/42164653/docker-in-docker-permissions-error
+
+RUN chmod 666 /var/run/docker.sock
 
 USER jenkins
