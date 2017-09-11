@@ -1,13 +1,17 @@
 #!/bin/sh
 set -e
 
+echo "USER: $USER"
+
+whoami
+
 JUSER="jenkins"
 
 DOCKER_GID=$(ls -aln /var/run/docker.sock  | awk '{print $4}')
 
 if ! getent group $DOCKER_GID; then
     echo "Creating group host-docker:$DOCKER_GID"
-    su addgroup --gid $DOCKER_GID host-docker
+    addgroup --gid $DOCKER_GID host-docker
 fi
 
 usermod -aG $DOCKER_GID $JUSER
