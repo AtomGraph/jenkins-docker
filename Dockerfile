@@ -24,11 +24,10 @@ RUN add-apt-repository \
 RUN apt-get update && \
   apt-get install -y docker-ce
 
-# RUN usermod -aG staff,docker jenkins
+COPY entrypoint.sh entrypoint.sh
 
-# workaround for jenkins Dockr socket permissions
-# https://stackoverflow.com/questions/42164653/docker-in-docker-permissions-error
+# https://issues.jenkins-ci.org/browse/JENKINS-44287
 
-RUN chmod 666 /var/run/docker.sock
+ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
 
-USER jenkins
+# USER jenkins
