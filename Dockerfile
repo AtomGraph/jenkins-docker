@@ -30,6 +30,8 @@ RUN chmod +x entrypoint.sh
 
 # https://issues.jenkins-ci.org/browse/JENKINS-44287
 
+RUN whoami
+
 ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
 
 # USER jenkins
