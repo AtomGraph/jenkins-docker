@@ -1,10 +1,6 @@
 #!/bin/sh
 set -e
 
-echo "USER: $USER"
-
-whoami
-
 JUSER="jenkins"
 
 DOCKER_GID=$(ls -aln /var/run/docker.sock  | awk '{print $4}')
