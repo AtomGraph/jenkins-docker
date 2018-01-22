@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkins/jenkins
 
 LABEL maintainer="martynas@atomgraph.com"
 
