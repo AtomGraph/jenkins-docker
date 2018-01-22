@@ -32,4 +32,4 @@ RUN chmod +x entrypoint.sh
 
 # neeed to run entrypoint as root
 
-ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/entrypoint.sh"]
